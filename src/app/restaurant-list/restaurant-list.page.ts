@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from '../services/category.service';
+import { RestaurantService } from '../services/restaurant.service';
 
 @Component({
   selector: 'app-restaurant-list',
@@ -7,22 +9,29 @@ import { CategoryService } from '../services/category.service';
   styleUrls: ['./restaurant-list.page.scss'],
 })
 export class RestaurantListPage implements OnInit {
-  categories: any=[];
+  restaurants: any=[];
+  cat: any;
 
-  constructor( private http:CategoryService) { }
+
+  constructor( private http:RestaurantService ,private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit() {
-    this.getcat();
+
+    this.cat = this.route.snapshot.paramMap.get('id');
+    this.getres(this.cat);
   }
-getcat(){
-  this.http.getcat()
+ getres(cat:any){
+  this.http.getresbycat(cat)
   .subscribe(
     club => {
-      this.categories= club['data'];
-      console.log(this.categories);
+      this.restaurants= club['data'];
+      console.log(this.restaurants);
     },
     error => {
       console.log(error);
     });
+}
+details(e:any){
+  this.router.navigate(['/restaurant-list/'+e]);
 }
 }

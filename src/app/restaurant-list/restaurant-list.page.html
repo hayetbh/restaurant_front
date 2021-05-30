@@ -1,9 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>restaurant-list</ion-title>
+    <ion-title>restaurants list</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+
+
+  <ion-list>
+    <ion-item *ngFor="let res of restaurants" >
+      <ion-avatar slot="start">
+        <ion-img ></ion-img>
+      </ion-avatar>
+      <ion-label (click)="details(res.id)">{{res.nameRes}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+  <ion-fab slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button routerLink="/add-restaurant">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

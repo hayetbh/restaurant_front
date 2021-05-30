@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ajouter une restaurant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="resForm" (ngSubmit)="addRes()">
+    <ion-list>
+      <ion-item>
+        <ion-label>Image</ion-label>
+        <ion-input type="text" formControlName="image_res"  ></ion-input>
+      </ion-item>
+    <ion-item>
+        <ion-label>Nom</ion-label>
+        <ion-input type="text" formControlName="nameRes" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-input type="text" formControlName="description"  ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button  type="submit">Ajouter</ion-button>
+    </ion-item>
+  </ion-list>
+  </form>
+
+
+</ion-content>

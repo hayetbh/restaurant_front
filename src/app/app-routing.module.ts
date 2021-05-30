@@ -16,17 +16,21 @@ const routes: Routes = [
     loadChildren: () => import('./restaurant-categories/restaurant-categories.module').then( m => m.RestaurantCategoriesPageModule)
   },
   {
-    path: 'restaurant-list',
+    path: 'restaurant-list/:id',
     loadChildren: () => import('./restaurant-list/restaurant-list.module').then( m => m.RestaurantListPageModule)
   },
   {
-    path: 'restaurant-details',
+    path: 'restaurant-details/:id',
     loadChildren: () => import('./restaurant-details/restaurant-details.module').then( m => m.RestaurantDetailsPageModule)
   },
 
   {
     path: 'add-restaurant-category',
     loadChildren: () => import('./add-restaurant-category/add-restaurant-category.module').then( m => m.AddRestaurantCategoryPageModule)
+  },
+  {
+    path: 'add-restaurant',
+    loadChildren: () => import('./add-restaurant/add-restaurant.module').then( m => m.AddRestaurantPageModule)
   },
 ];
 

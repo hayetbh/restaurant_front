@@ -12,7 +12,7 @@ export class CategoryService {
     );
   }
   ///cat/addcat (name , image)
-  addres(name:any,image:any){
+  addcat(name:any,image:any){
     return this._http.post<any>(
       "http://127.0.0.1:5001" + "/cat/addcat",   {
 

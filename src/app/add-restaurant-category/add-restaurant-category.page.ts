@@ -25,7 +25,7 @@ image:any;
 
   addCategory(){
     const values = this.categoryForm.value;
-    this.categorieService.addres(values.name,values.image).subscribe(data => {
+    this.categorieService.addcat(values.name,values.image).subscribe(data => {
       if(data['error']!=true){
         window.alert("Submitted...");
         this.router.navigate(["/restaurant-categories"]);

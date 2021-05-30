@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CategoryService } from '../services/category.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class RestaurantCategoriesPage implements OnInit {
 
   categories :any =[];
 
-  constructor(private categorieServ : CategoryService) { }
+  constructor(private categorieServ : CategoryService,private  router: Router ) { }
   ngOnInit() {
 this.getcat();
   }
@@ -25,7 +26,10 @@ getcat(){
       console.log(error);
     });
 }
-
+res(e:any){
+  this.router.navigate(['/restaurant-list/'+e]);
+  localStorage.setItem("cat",e);
+}
   ionViewWillEnter() {
     //this.categories = this.categorieServ.getCategories();
   }
