@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-card  *ngFor="let res of restaurant">
-    <img src="assets/madison.jpg" style="height: 300px; width: 300px;"/>
+    <img [src]="res.image_res" style="height: 300px; width: 300px;"/>
 
     <ion-card-header>
 
